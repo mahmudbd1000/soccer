@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2016 at 10:48 PM
+-- Generation Time: May 23, 2016 at 09:26 PM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.6.19
 
@@ -56,6 +56,7 @@ CREATE TABLE `schedule_result` (
   `match_time` time NOT NULL,
   `home_team_goal` tinyint(2) NOT NULL,
   `visiting_team_goal` tinyint(2) NOT NULL,
+  `updated_status` tinyint(1) NOT NULL COMMENT '1=updated,0=new',
   `match_status` tinyint(1) NOT NULL COMMENT '1=completed,0=upcoming'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -63,8 +64,34 @@ CREATE TABLE `schedule_result` (
 -- Dumping data for table `schedule_result`
 --
 
-INSERT INTO `schedule_result` (`id`, `standing_id`, `home_team_id`, `visiting_team_id`, `stadium_id`, `match_date`, `match_time`, `home_team_goal`, `visiting_team_goal`, `match_status`) VALUES
-(3, 1, 12, 14, 2, '2016-05-21', '17:30:00', 2, 3, 1);
+INSERT INTO `schedule_result` (`id`, `standing_id`, `home_team_id`, `visiting_team_id`, `stadium_id`, `match_date`, `match_time`, `home_team_goal`, `visiting_team_goal`, `updated_status`, `match_status`) VALUES
+(4, 1, 5, 11, 4, '2016-05-23', '16:30:00', 4, 2, 1, 1),
+(5, 1, 10, 14, 4, '2016-05-16', '16:45:00', 4, 3, 1, 1),
+(6, 1, 10, 11, 1, '2016-06-30', '17:00:00', 0, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `soccer_news`
+--
+
+CREATE TABLE `soccer_news` (
+  `id` int(11) NOT NULL,
+  `headline` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `photo` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `details` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `posted_by` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `created` date NOT NULL,
+  `status` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `soccer_news`
+--
+
+INSERT INTO `soccer_news` (`id`, `headline`, `photo`, `details`, `posted_by`, `created`, `status`) VALUES
+(1, 'ddd', 'news_105743101f308e25.579629471464012831.jpg', 'sfa sdfsdafsdaf<br>sad fsdafsadfsdaf sda<br><h1>sa dfsadfsdafsdaf sdf</h1> <b><i>sdfa sdf sad f</i></b><br><br>', 'sdfsd', '2016-05-23', 1),
+(2, 'sdafsdaf', 'news_105743104fef4338.872154781464012879.png', 'sa dfsadfsdafsdafasd f<br>sda fsadfsdafsdf<br>', 'sadfasdf', '2016-05-23', 1);
 
 -- --------------------------------------------------------
 
@@ -166,15 +193,15 @@ CREATE TABLE `teams` (
 --
 
 INSERT INTO `teams` (`id`, `standing_id`, `team_name`, `won`, `lost`, `tied`, `gf`, `ga`, `diff`, `points`, `status`) VALUES
-(5, 1, 'C. Americanos', 0, 0, 0, 0, 0, 0, 0, 1),
+(5, 1, 'C. Americanos', 1, 0, 0, 4, 2, 0, 3, 1),
 (6, 1, 'Crankyes', 0, 0, 0, 0, 0, 0, 0, 1),
 (7, 8, 'Queretaro', 0, 0, 0, 0, 0, 0, 0, 1),
 (8, 8, 'Mexico', 0, 0, 0, 0, 0, 0, 0, 1),
-(10, 1, 'Soledad', 0, 0, 0, 0, 0, 0, 0, 1),
-(11, 1, 'Rivera’s Tile', 0, 0, 0, 0, 0, 0, 0, 1),
+(10, 1, 'Soledad', 1, 0, 0, 4, 3, 0, 3, 1),
+(11, 1, 'Rivera’s Tile', 0, 1, 0, 2, 4, 0, 0, 1),
 (12, 1, 'Penuelas', 0, 0, 0, 0, 0, 0, 0, 1),
 (13, 1, 'Inter', 0, 0, 0, 0, 0, 0, 0, 1),
-(14, 1, 'Quetzal FC', 0, 0, 0, 0, 0, 0, 0, 1),
+(14, 1, 'Quetzal FC', 0, 1, 0, 3, 4, 0, 0, 1),
 (15, 1, 'Durango', 0, 0, 0, 0, 0, 0, 0, 1),
 (16, 1, 'Leones Negros', 0, 0, 0, 0, 0, 0, 0, 1),
 (17, 1, 'La Piedad', 0, 0, 0, 0, 0, 0, 0, 1);
@@ -193,6 +220,12 @@ ALTER TABLE `admin_user`
 -- Indexes for table `schedule_result`
 --
 ALTER TABLE `schedule_result`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `soccer_news`
+--
+ALTER TABLE `soccer_news`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -232,7 +265,12 @@ ALTER TABLE `admin_user`
 -- AUTO_INCREMENT for table `schedule_result`
 --
 ALTER TABLE `schedule_result`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `soccer_news`
+--
+ALTER TABLE `soccer_news`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `stadiums`
 --

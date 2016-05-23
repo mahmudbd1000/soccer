@@ -39,11 +39,21 @@ Route::get('stadium_list', 'Admin\SettingsController@stadium_list');
 Route::post('get_stadium_list_ajax', 'Admin\SettingsController@get_stadium_list_ajax');
 Route::get('delete_stadium/{stadiumId}', 'Admin\SettingsController@delete_stadium');
 
+//schedule start
 Route::get('add_schedule', 'Admin\ScheduleController@add_schedule');
 Route::get('get_team_name_by_standing/{standingId}', 'Admin\ScheduleController@get_team_name_by_standing');
 Route::post('save_schedule', 'Admin\ScheduleController@save_schedule');
 Route::get('schedule_list/{category}', 'Admin\ScheduleController@schedule_list');
 Route::post('get_schedule_list_ajax/{matchType}/{category}', 'Admin\ScheduleController@get_schedule_list_ajax');
+Route::post('schedule_list_dashboard/', 'Admin\ScheduleController@schedule_list_dashboard');
 Route::post('save_schedule_result_ajax/', 'Admin\ScheduleController@save_schedule_result_ajax');
+Route::get('edit_schedule/{catId}/{scheduleId}', 'Admin\ScheduleController@edit_schedule');
+Route::post('update_schedule/', 'Admin\ScheduleController@update_schedule');
 Route::get('delete_schedule/{catId}/{scheduleId}', 'Admin\ScheduleController@delete_schedule');
 
+//news start
+Route::get('add_news', 'Admin\NewsController@add_news');
+Route::post('save_news', 'Admin\NewsController@save_news');
+Route::get('news_list', 'Admin\NewsController@news_list');
+Route::post('news_list_ajax', 'Admin\NewsController@news_list_ajax');
+Route::get('delete_news/{newsId}', 'Admin\NewsController@delete_news');

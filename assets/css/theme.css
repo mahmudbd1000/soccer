@@ -35,7 +35,7 @@ a:hover, a:focus{
     border-bottom: 1px dashed #dfe8f1;
     padding:0 0 15px 0;
 }
-.form-group label{
+.form-group label, .form-group div i{
     color: #666;
     font-size: 12px;
 }

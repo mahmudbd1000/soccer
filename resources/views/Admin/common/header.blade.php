@@ -28,39 +28,36 @@
 
             <!--ADMIN SETTINGS SECTIONS -->
 
+           
             <li>
-                <a  href="#">
-                    <i class="fa fa-bar-chart"></i>
-
+                <a  href="{{ URL::to('schedule_list/1')}}" data-toggle="tooltip" data-placement="bottom" title="Schedule of Adultos">
+                    <i class="fa fa-calendar"></i>
                 </a>
             </li>
             <li>
-                <a  href="#">
-                    <i class="fa fa-university"></i>
+                <a  href="{{ URL::to('schedule_list/2')}}" data-toggle="tooltip" data-placement="bottom" title="Schedule of Infantils">
+                    <i class="fa fa-calendar-o"></i>
                 </a>
             </li>
             <li>
-                <a href="{{ URL::to('profile_setting')}}" data-toggle="tooltip" data-placement="bottom" title="Company Profile">
-                    <i class="fa fa-cog"></i>
+                <a  href="{{ URL::to('team_list')}}" data-toggle="tooltip" data-placement="bottom" title="Team list">
+                    <i class="fa fa-soccer-ball-o"></i>
                 </a>
-
             </li>
-
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user"></i>&nbsp;<i class="fa fa-angle-down"></i>
+            <li>
+                <a href="{{ URL::to('standing_list')}}" data-toggle="tooltip" data-placement="bottom" title="Standing list">
+                    <i class="fa fa-group"></i>
                 </a>
-
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#"><i class="icon-user"></i> User Profile </a>
-                    </li>
-                    <li><a href="#"><i class="icon-gear"></i> Settings </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li><a href="login.html"><i class="icon-signout"></i> Logout </a>
-                    </li>
-                </ul>
-
+            </li>
+            <li>
+                <a href="{{ URL::to('news_list')}}" data-toggle="tooltip" data-placement="bottom" title="News">
+                    <i class="fa fa-newspaper-o"></i>
+                </a>
+            </li>
+            <li>
+                <a href="{{ URL::to('admin_logout')}}" data-toggle="tooltip" data-placement="bottom" title="Logout">
+                    <i class="fa fa-sign-out"></i>
+                </a>
             </li>
             <!--END ADMIN SETTINGS -->
         </ul>

@@ -118,6 +118,32 @@
                 </li>
             </ul>
         </li>
+        
+        
+        <li class="">
+            <a href="javascript:;" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#news-nav">
+                <i class="fa fa-newspaper-o"></i> News Manager  
+
+                <span class="pull-right">
+                    <i class="fa fa-angle-right"></i>
+                </span>
+            </a>
+            <ul class="collapse" id="news-nav">
+                <li>
+                    <a href="{{ URL::to('news_list')}}">
+                        <i class="fa fa-circle-thin"></i>&nbsp;
+                       List of News
+                    </a>
+                </li>
+               
+                <li>
+                    <a href="{{ URL::to('add_news')}}">
+                        <i class="fa fa-plus-circle"></i>&nbsp;
+                        Add News &nbsp;<span class="label label-primary">new</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
     </ul>
 
 </div>

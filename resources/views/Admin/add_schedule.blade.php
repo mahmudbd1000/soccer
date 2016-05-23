@@ -99,7 +99,8 @@
                                                 <span class="input-group-addon add-on"><i class="fa fa-clock-o"></i></span>
                                             </div>
                                         </div>
-                                    </div>
+                                        
+                                    </div><br><br><br>
 
                                     <button type="submit" class="btn btn-info btn-line pull-right">
                                         Submit
@@ -132,8 +133,10 @@
                         
                     //add team list in team select
                     $('.standing_select').on('change', function(){
+                        
                     var standingId = $(this).val();
                     if(standingId != ""){
+                        show_loader();
                             $.ajax({
                             type:'get',
                             url: "{{URL::to('get_team_name_by_standing')}}/" + standingId,
@@ -149,6 +152,7 @@
                                 
                                 var visitingTeams = "<option value=''>Select Visiting Team</option>"+teams;
                                 $('.visiting_team_select').html(visitingTeams);
+                                hide_loader();
                             }
                             });
                         }
